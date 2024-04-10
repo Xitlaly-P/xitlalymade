@@ -1,0 +1,17 @@
+/* DEVELOPER Xitlaly Prado, IS117-006, Spring 2024 */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+nav{
+    background-color: #D2A1B8;
+}
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #F6F7EB;
+}
+
+.card:hover{
+    filter: drop-shadow(0 0 0.75rem rgb(215, 228, 231));
+}
+.text-decoration-line-through{
+    text-decoration: line-through;
+}
