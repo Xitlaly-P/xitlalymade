@@ -1,40 +1,154 @@
 /* DEVELOPER Xitlaly Prado, IS117-006, Spring 2024 */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-nav{
+
+nav {
     background-color: #D2A1B8;
 }
-body{
+
+body {
     font-family: "Montserrat", sans-serif;
     background-color: #F6F7EB;
 }
 
-.title{
+.title {
     text-align: center;
 }
-.card{
-    background-image: linear-gradient(-30deg, rgba(34, 142, 209, 0.381), rgba(217, 224, 228, 0.2) 50%);
+
+:root {
+    --surface-color: #fff;
+    --curve: 40;
 }
 
-.card:nth-child(2n){
-    background-image: linear-gradient(30deg, rgba(34, 142, 209, 0.381), rgba(217, 224, 228, 0.2) 50%);
+* {
+    box-sizing: border-box;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+}
+
+.card {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: calc(var(--curve) * 1px);
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.card__image {
+    width: 100%;
+    height: auto;
+}
+
+.card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: calc(var(--curve) * 1px);
+    background-color: var(--surface-color);
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+    transform: translateY(0);
+}
+
+.card__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 2em;
+    padding: 2em;
+    border-radius: calc(var(--curve) * 1px) 0 0 0;
+    background-color: var(--surface-color);
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+}
+
+.card__arc {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1;
+}
+
+.card__arc path {
+    fill: var(--surface-color);
+    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__header {
+    transform: translateY(0);
+}
+
+.card__thumb {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.card__title {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3em;
+    margin: 0 0 .3em;
+    color: black;
+}
+
+.card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: .8em;
+    color: #D7BDCA;
+}
+
+.card__status {
+    font-size: .8em;
+    color: #D7BDCA;
+}
+
+.card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 
 #me {
     --c: #D2A1B8; /* the border color */
-    --b: 10px;    /* the border thickness*/
-    --g: 5px;     /* the gap on hover */
-    
+    --b: 10px; /* the border thickness*/
+    --g: 5px; /* the gap on hover */
+
     padding: calc(var(--g) + var(--b));
     --_g: #0000 25%,var(--c) 0;
     background: 
-      conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g))
-       var(--_i,200%) 0  /200% var(--_i,var(--b))  no-repeat,
-      conic-gradient(            at bottom var(--b) left  var(--b),var(--_g))
-       0   var(--_i,200%)/var(--_i,var(--b)) 200%  no-repeat;
+        conic-gradient(from 180deg at top var(--b) right var(--b),var(--_g))
+        var(--_i,200%) 0 /200% var(--_i,var(--b)) no-repeat,
+        conic-gradient(at bottom var(--b) left var(--b),var(--_g))
+        0 var(--_i,200%)/var(--_i,var(--b)) 200% no-repeat;
     transition: .3s, background-position .3s .3s;
     cursor: pointer;
-  }
+}
+
 #me:hover {
     --_i: 100%;
     transition: .3s, background-size .3s .3s;
@@ -45,7 +159,7 @@ body{
         background-image: linear-gradient(-80deg, rgba(34, 142, 209, 0.381), rgba(217, 224, 228, 0.2) 50%);
     }
 
-    .card:nth-child(2n){
+    .card:nth-child(2n) {
         background-image: linear-gradient(80deg, rgba(34, 142, 209, 0.381), rgba(217, 224, 228, 0.2) 50%);
     }
 }
