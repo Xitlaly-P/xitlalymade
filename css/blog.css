@@ -20,7 +20,6 @@ body {
     padding-left: 5%;
     font-size: 3em;
 }
-
-.container{
-    padding-bottom: .5em;
+#images{
+    align-content: center;
 }
